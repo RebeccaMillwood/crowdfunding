@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
+import LoginPage from "./pages/LoginPage";
 import "./App.css";
 
 function App() {
@@ -14,6 +15,10 @@ function App() {
       <Switch>
         <Route path="/projects/:id">
           <ProjectPage />
+        </Route>
+
+        <Route path="/login">
+          <LoginPage />
         </Route>
 
         <Route path="/">
