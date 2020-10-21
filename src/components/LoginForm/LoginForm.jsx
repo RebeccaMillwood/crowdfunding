@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function LoginForm() {
     const [credentials, setCredentials] = useState({
         username: "",
-        password: "".
+        password: "",
     });
 
     const handleChange = (e) => {
@@ -14,19 +14,23 @@ function LoginForm() {
         }));
     };
 
+    const postData = async () => {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}api-token-auth/`, 
+        {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(credentials),
+        });
+        return response.json();
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (credentials.username && credentials.password) {
-            fetch(`${process.env.REACT_APP_API_URL}api-token-auth/`, {
-                method: "post",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(credentials),
-            })
-            
-            .then((response) => {
-                console.log(response.json());
+            postData().then((response) => {
+                console.log(response);
             });
         }
     };
@@ -48,7 +52,7 @@ function LoginForm() {
                     type="password"
                     id="password"
                     placeholder="Password"
-                    oncahnge={handleChange}
+                    onChange={handleChange}
                 />
             </div>
             <button type="submit" onClick={handleSubmit}>
