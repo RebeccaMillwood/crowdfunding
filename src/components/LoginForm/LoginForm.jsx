@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 
 function LoginForm() {
+    const [credentials, setCredentials] = useState({
+        username: "",
+        password: "".
+    });
+
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        setCredentials((prevCredentials) => ({
+            ...prevCredentials,
+            [id]: value,
+        }));
+    };
+
     return (
         <form>
             <div>
@@ -9,6 +22,7 @@ function LoginForm() {
                     type="text"
                     id="username"
                     placeholder="Enter username"
+                    onChange={handleChange}
                 />
             </div>
             <div>
@@ -17,6 +31,7 @@ function LoginForm() {
                     type="password"
                     id="password"
                     placeholder="Password"
+                    oncahnge={handleChange}
                 />
             </div>
             <button type="submit">
