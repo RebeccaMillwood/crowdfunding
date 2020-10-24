@@ -1,7 +1,8 @@
 import React from "react";
+import CreateProjectForm from "../components/CreateProject/CreateProjectForm";
 
 function CreateProject() {
-    return <h1>This is a page to create a new project</h1>;
+    return <CreateProjectForm />;
 }
 
 export default CreateProject;
