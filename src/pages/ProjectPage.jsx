@@ -12,7 +12,7 @@ function ProjectPage() {
         })
         .then((data) => {
             setProjectData(data);
-        })
+        });
     }, []); 
 
 

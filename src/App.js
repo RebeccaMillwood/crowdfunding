@@ -21,6 +21,10 @@ function App() {
           <LoginPage />
         </Route>
 
+        <Route path="/create-project">
+          <CreateProject />
+        </Route>
+
         <Route path="/">
           <HomePage />
         </Route>
