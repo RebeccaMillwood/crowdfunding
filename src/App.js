@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ErrorNotFound from "./components/ErrorNotFound/ErrorNotFound";
 import Nav from "./components/Nav";
 import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
@@ -26,9 +27,12 @@ function App() {
           <CreateProject />
         </Route>
 
-        <Route path="/">
+        <Route exact path="/">
           <HomePage />
         </Route>
+
+        <Route path="" component={ErrorNotFound} /> 
+
       </Switch>
       </div>
     </Router>
