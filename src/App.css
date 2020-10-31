@@ -1,11 +1,53 @@
-#project-list {
-  display: grid;
-  grid-template-columns: 30% 30% 30%;
-  column-gap: 10px;
-  row-gap: 10px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Chicle&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap');
 
 body {
   background: #ACD8AA;
   color: #E78F8E;
 }
+
+h1{
+  font-family: 'Chicle', cursive;
+  font-size: 5rem;
+  padding: 10px;
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  padding: 10px;
+}
+
+nav{
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  padding: 10px;
+}
+
+a:hover{
+  color: #FFE6E8;
+}
+
+button{
+  background-color: #E78F8E;
+  color: #FFE6E8;
+}
+
+button:hover{
+  color: #ACD8AA;
+}
+
+input{
+  background-color: #E78F8E;
+  color: #FFE6E8;
+}
+
+#project-list {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  column-gap: 10px;
+  row-gap: 10px;
+  padding: 10px;
+}
+
