@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-// import ErrorNotFound from "../ErrorNotFound/ErrorNotFound";
+import ErrorNotFound from "../ErrorNotFound/ErrorNotFound";
 
 function EditProjectForm() {
     const [projectDetails, newProjectDetails] = useState([]);
@@ -56,7 +56,16 @@ function EditProjectForm() {
         e.preventDefault();
         putData().then((response) => {
             console.log(response);
-        history.push(`/projects/${id}`);   
+            if (response.detail) {
+                history.push(`/${ErrorNotFound}`);
+                return;
+            }
+            history.push(`/projects/${response.id}`);   
+        })
+        .catch((error) => {
+            if (error.status === 403) {
+                history.push(`/${ErrorNotFound}`);
+            };
         });
     };
 
