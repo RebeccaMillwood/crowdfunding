@@ -11,9 +11,21 @@ function PledgeForm() {
                 id="amount"
                 placeholder="Time in hours"
             />
+            <label htmlFor="comment">Comment: </label>
+            <input
+                type="text"
+                id="comment"
+                placeholder="Comment"
+            />
+            <label htmlFor="anonymous">Anonymous? </label>
+            <input
+                type="text"
+                id="anonymous"
+                placeholder="True/Flase"
+            />
         </div>
         <button type="submit">
-            Pledge!
+            Pledge my time!
         </button>
         </form>
     );
