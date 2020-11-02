@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import CreateProject from "./pages/CreateProject";
 import NewUser from "./pages/NewUser";
 import EditProjectPage from "./pages/EditProjectPage";
+import PledgePage from "./pages/PledgePage";
 import "./App.css";
 
 function App() {
@@ -36,6 +37,10 @@ function App() {
 
         <Route path="/create-project">
           <CreateProject />
+        </Route>
+
+        <Route path="/pledges">
+          <PledgePage />
         </Route>
 
         <Route exact path="/">

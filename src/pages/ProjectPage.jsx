@@ -27,9 +27,7 @@ function ProjectPage() {
             <h3>Location: {projectData.location}</h3>
             <h3>Walks needed this month (in hours): {projectData.goal}</h3>
             <h3>{`Status: ${projectData.is_open}`}</h3>
-            <li>
-                <Link to={`/edit/${projectData.id}`}>Edit</Link>
-            </li>
+            <Link to={`/edit/${projectData.id}`}>Edit details</Link>
             <h3>Pledges:</h3>
             <ul>
                 {projectData.pledges.map((pledgeData, key) => {
@@ -40,6 +38,7 @@ function ProjectPage() {
                     )
                 })}
             </ul>
+            <Link to={`/pledges/`}>I have time to walk this pooch!</Link>
         </div>
     )
 }
