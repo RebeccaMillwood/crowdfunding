@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./ProjectPage.css";
 
 function ProjectPage() {
@@ -14,6 +14,7 @@ function ProjectPage() {
         .then((data) => {
             setProjectData(data);
         });
+        // eslint-disable-next-line
     }, []); 
 
 
@@ -26,6 +27,9 @@ function ProjectPage() {
             <h3>Location: {projectData.location}</h3>
             <h3>Walks needed this month (in hours): {projectData.goal}</h3>
             <h3>{`Status: ${projectData.is_open}`}</h3>
+            <li>
+                <Link to={`/edit/${projectData.id}`}>Edit</Link>
+            </li>
             <h3>Pledges:</h3>
             <ul>
                 {projectData.pledges.map((pledgeData, key) => {

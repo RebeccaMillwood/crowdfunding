@@ -1,43 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+// import ErrorNotFound from "../ErrorNotFound/ErrorNotFound";
 
 function EditProjectForm() {
     const [projectDetails, newProjectDetails] = useState([]);
     const { id } = useParams();
-
-    // useEffect(() => {
-    //     fetch(`${process.env.REACT_APP_API_URL}/projects/${id}`)
-    //     .then((results) => {
-    //         return results.json();
-    //     })
-    //     .then((data) => {
-    //         newProjectDetails(data);
-    //     });
-    // }, []); 
+    const history = useHistory();
 
     useEffect(() => {
-        newProjectDetails({
-            title: projectDetails.title,
+        fetch(`${process.env.REACT_APP_API_URL}/projects/${id}`)
+        .then((results) => {
+            return results.json();
         })
-    }, [projectDetails]);
+        .then((data) => {
+            newProjectDetails(data);
+        });
+        // eslint-disable-next-line
+    }, []); 
 
-    const history = useHistory();
+    // useEffect(() => {
+    //     newProjectDetails({
+    //         title: projectDetails.title,
+    //     })
+    // }, [projectDetails]);
 
     const handleChange = (e) => {
         const { id, value } = e.target;
         newProjectDetails((prevProjectDetails) => ({
-            ...prevProjectDetails,
-            [id]: value,
+          ...prevProjectDetails,
+          [id]: value,
         }));
-    }
+      };
 
     const putData = async () => {
-        const token = window.localStorgae.getItem("token");
-        if (!token) {
-            window.alert("Not logged in");
-            return;
-        }
+        const token = window.localStorage.getItem("token");
+        // if (!token) {
+        //     window.alert("Not logged in");
+        //     return;
+        // }
         const response = await
         fetch(`${process.env.REACT_APP_API_URL}/projects/${id}`,
         {
@@ -55,7 +56,7 @@ function EditProjectForm() {
         e.preventDefault();
         putData().then((response) => {
             console.log(response);
-        history.push("/projects/:id");   
+        history.push(`/projects/${id}`);   
         });
     };
 

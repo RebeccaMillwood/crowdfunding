@@ -22,7 +22,7 @@ function App() {
           <ProjectPage />
         </Route>
 
-        <Route path="/projects/:id">
+        <Route path="/edit/:id">
           <EditProjectPage/>
         </Route>
 
