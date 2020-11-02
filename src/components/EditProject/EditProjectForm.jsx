@@ -79,6 +79,41 @@ function EditProjectForm() {
                     value = {projectDetails.title}
                     onChange={handleChange}
                 />
+                <label htmlFor="description">Description: </label>
+                <input
+                    type="text"
+                    id="description"
+                    value = {projectDetails.description}
+                    onChange={handleChange}
+                />
+                <label htmlFor="location">Location: </label>
+                <input
+                    type="text"
+                    id="location"
+                    value = {projectDetails.location}
+                    onChange={handleChange}
+                />
+                <label htmlFor="goal">Goal: </label>
+                <input
+                    type="text"
+                    id="goal"
+                    value = {projectDetails.goal}
+                    onChange={handleChange}
+                />
+                <label htmlFor="image">Image: </label>
+                <input
+                    type="text"
+                    id="image"
+                    value = {projectDetails.image}
+                    onChange={handleChange}
+                />
+                <label htmlFor="is_open">Is Project Active?: </label>
+                <input
+                    type="text"
+                    id="is_open"
+                    value = {projectDetails.is_open}
+                    onChange={handleChange}
+                />
             </div>
             <button type="submit" onClick={handleSubmit}>
                 Edit
